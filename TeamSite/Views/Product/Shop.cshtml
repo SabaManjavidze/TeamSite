@@ -1,0 +1,13 @@
+﻿@model ListWithPaging
+
+    <h1 class="text-light">Equiptment</h1>
+
+    <div class="d-flex">
+    @foreach (var product in Model.products)
+    {
+        @Html.Partial("Product", product)
+    }
+
+    </div>
+    <div page-model="@Model.PagingInfo" page-action="Shop" page-classes-enabled="true" page-class="page-item"
+         page-class-normal="page-link" page-class-selected="btn btn-primary" class="btn-group"></div>  

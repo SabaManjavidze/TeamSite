@@ -1,0 +1,13 @@
+﻿@model UserManager<User>
+
+    <p>Users</p>
+
+    <tbody class="text-light">
+@foreach (var user in Model.Users)
+{
+        <tr>
+            <td>@user.Email</td>
+            <td>@user.UserName</td>
+        </tr>
+}
+    </tbody>

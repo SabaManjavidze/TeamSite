@@ -1,0 +1,33 @@
+﻿@model CartRepository
+
+<table class="table">
+    <thead class="text-light">
+        <tr>
+            <th scope="col">Quantity</th>
+            <th scope="col">Item</th>
+            <th scope="col">Price</th>
+            <th scope="col">SubTotalPrice</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var line in Model.Lines)
+        {
+            <tr class="text-light">
+                <th scope="row">@line.Quantity</th>
+                <td><img style="width:100px" src="@line.product.ImageUrl"/></td>
+                <td>@line.product.Name</td>
+                <td>@line.product.Price</td>
+                <td>@line.product.Price.ToString("c")</td>
+                <td>@(line.Quantity * line.product.Price)</td>
+                <td><a asp-action="RemoveFromCart" asp-route-productId="@line.product.Id" class="btn btn-secondary">Remove</a></td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+
+<h4 class="text-light">Total Price : @Model.TotalPrice()</h4>
+<div class="text-center text-light">
+    <a asp-action="BuyNow" asp-controller="Order" class="btn btn-primary">Buy Now</a>
+</div>
+

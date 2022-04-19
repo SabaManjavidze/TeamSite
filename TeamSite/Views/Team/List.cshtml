@@ -1,0 +1,46 @@
+﻿@model ListWithPaging
+@using TeamSite.Models.TeamModels;
+
+<h1 class="text-light">Team Members</h1>
+
+
+
+<table class="table text-light">
+    <thead class="text-light">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">JerseyNumber</th>
+            <th scope="col">Position</th>
+            <th scope="col">RoleInTeam</th>
+        </tr>
+    </thead>
+    @foreach (var member in Model.TeamMembers)
+    {
+        if (member.RoleInTeam == TeamSite.Models.TeamModels.Role.Player)
+        {
+            <tbody class="text-light">
+                <tr>
+                    <th scope="row">@member.Id</th>
+                    <td>@member.Name</td>
+                    <td>@member.JerseyNumber</td>
+                    <td>@member.Position</td>
+                    <td>@member.RoleInTeam</td>
+                </tr>
+            </tbody>
+        }
+        else
+        {
+            <tbody class="text-light">
+                <tr>
+                    <th scope="row">@member.Id</th>
+                    <td>@member.Name</td>
+                    <td>@member.RoleInTeam</td>
+                </tr>
+            </tbody>
+        }
+    }
+</table>
+
+<div page-model="@Model.PagingInfo" page-action="List" page-classes-enabled="true" page-class="page-item"
+     page-class-normal="page-link" page-class-selected="btn btn-primary" class="btn-group text-light"></div>  

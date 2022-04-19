@@ -1,0 +1,13 @@
+﻿@model Product
+
+
+<div class="card bg-dark" style="width: 18rem;">
+    <img src="@Model.ImageUrl" class="card-img-top" >
+    <div class="card-body">
+        <h5 class="card-title text-light">@Model.Name</h5>
+        <h4 class="card-text text-light">@Model.Price.ToString("c")</h4>
+        <p class="card-text text-light">@Model.Category</p>
+        <a asp-action="AddToCart" asp-controller="Cart" asp-route-productId="@Model.Id" class="btn btn-primary text-light">Add To Cart</a>
+    </div>
+</div>
+

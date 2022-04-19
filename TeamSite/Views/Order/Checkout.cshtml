@@ -1,0 +1,17 @@
+﻿@model Order
+
+<form asp-action="Checkout" method="post" class="text-light">
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">FullName</label>
+        <input asp-for="FullName" type="text" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Address</label>
+        <input asp-for="Adress" type="text" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">PhoneNumber</label>
+        <input asp-for="PhoneNumber" type="text" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
